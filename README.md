@@ -1,4 +1,4 @@
-# Time
+# ReportList
 ![image](https://github.com/Nanporo/TainanEQCReportList/blob/main/screenshot.png)
 
 台南地震監視的地震報告，每分鐘自動向 API 確認更新
