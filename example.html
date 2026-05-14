@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地震報告 - 顏色與版面測試</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="broadcast-area">
+    <div class="container">
+        
+        <!-- 測試：主卡片 (震度 7) -->
+        <div class="card featured">
+            <div class="top-row">
+                <div class="intensity-box level-7">7</div>
+                <div class="info">
+                    <div class="location">花蓮縣政府南南東方 25.0 公里</div>
+                    <div class="time">2024-04-03 07:58</div>
+                </div>
+            </div>
+            <div class="bottom-row">
+                <div class="label">觀測最大震度</div>
+                <div class="mag-depth">
+                    <span>M 9.0 </span>
+                    <span>114.5 km</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 測試：子卡片 (震度 6+) -->
+        <div class="card item">
+            <div class="intensity-box level-6-plus">6+</div>
+            <div class="info">
+                <div class="location">台南市永康區</div>
+                <div class="time">2024-04-03 07:58</div>
+            </div>
+            <div class="mag">M 8.0 </div>
+        </div>
+
+        <!-- 測試：子卡片 (震度 6-) -->
+        <div class="card item">
+            <div class="intensity-box level-6-minus">6-</div>
+            <div class="info">
+                <div class="location">台北市政府南南東方 25.0 公里</div>
+                <div class="time">2024-04-03 07:58</div>
+            </div>
+            <div class="mag">M 7.5 </div>
+        </div>
+
+        <!-- 測試：子卡片 (震度 5+) -->
+        <div class="card item">
+            <div class="intensity-box level-5-plus">5+</div>
+            <div class="info">
+                <div class="location">金門縣金湖鎮</div>
+                <div class="time">2024-04-03 07:58</div>
+            </div>
+            <div class="mag">M 7.0 </div>
+        </div>
+
+        <!-- 測試：子卡片 (震度 5-) -->
+        <div class="card item">
+            <div class="intensity-box level-5-minus">5-</div>
+            <div class="info">
+                <div class="location">南投縣草屯鎮</div>
+                <div class="time">2024-04-03 07:58</div>
+            </div>
+            <div class="mag">M 6.0 </div>
+        </div>
+
+        <!-- 測試：子卡片 (震度 4) -->
+        <div class="card item">
+            <div class="intensity-box level-4">4</div>
+            <div class="info">
+                <div class="location">台中市梨山區</div>
+                <div class="time">2024-04-03 07:58</div>
+            </div>
+            <div class="mag">M 5.0 </div>
+        </div>
+
+        <!-- 測試：子卡片 (震度 3) -->
+        <div class="card item">
+            <div class="intensity-box level-3">3</div>
+            <div class="info">
+                <div class="location">新北市新店區</div>
+                <div class="time">2024-04-03 07:58</div>
+            </div>
+            <div class="mag">M 4.0 </div>
+        </div>
+
+        <!-- 測試：子卡片 (震度 2) -->
+        <div class="card item">
+            <div class="intensity-box level-2">2</div>
+            <div class="info">
+                <div class="location">屏西縣爆炸市</div>
+                <div class="time">2024-04-03 07:58</div>
+            </div>
+            <div class="mag">M 3.0 </div>
+        </div>
+
+        <!-- 測試：子卡片 (震度 1) -->
+        <div class="card item">
+            <div class="intensity-box level-1">1</div>
+            <div class="info">
+                <div class="location">地牛縣耳壓市</div>
+                <div class="time">2024-04-03 07:58</div>
+            </div>
+            <div class="mag">M 1.1 </div>
+        </div>
+
+        <!-- 測試：子卡片 (震度 7) -->
+        <div class="card item">
+            <div class="intensity-box level-7">7</div>
+            <div class="info">
+                <div class="location">嚴重市要暫停市</div>
+                <div class="time">2024-04-03 07:58</div>
+            </div>
+            <div class="mag">M 2.5 </div>
+        </div>
+        
+
+    </div>
+    
+</div>
+
+    <div id="settings-area">
+        <label>CWA API 授權碼：</label>
+        <input type="text" id="api-key-input" placeholder="CWA-XXXXX..." size="40">
+        <button id="save-btn">範例檔案填了沒用</button>
+        <span id="save-status"></span>
+    </div>
+
+</body>
+</html>

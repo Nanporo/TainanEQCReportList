@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地震報告列表</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="broadcast-area">
+        <div id="earthquake-list" class="container">
+            </div>
+    </div>
+
+    <div id="settings-area">
+        <label>CWA API 授權碼：</label>
+        <input type="text" id="api-key-input" placeholder="CWA-XXXXX..." size="40">
+        <button id="save-btn">儲存</button>
+        <span id="save-status"></span>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
