@@ -24,7 +24,7 @@ body {
 }
 
 .broadcast-area {
-    background-color: #3f4241; 
+    background-color: #4a4a4a; 
     border: 1px solid #FFFFFF; 
     padding: 4px;
     width: 253px;              
@@ -61,7 +61,7 @@ body {
 
 /* --- 放大的主要規模數字 --- */
 .featured .mag-depth { display: flex; justify-content: space-between; width: 100%; align-items: flex-end; flex-direction: row-reverse; }
-.featured .mag-depth span:first-child { font-size: 22px; font-weight: bold; letter-spacing: 1px; white-space: nowrap; } /* 主卡片 M 放大 */
+.featured .mag-depth span:first-child { font-size: 22px; font-weight: bold; letter-spacing: 1px; white-space: nowrap; font-variant-numeric: tabular-nums; } /* 主卡片 M 放大 */
 .featured .mag-depth span:last-child { font-size: 14px; font-weight: bold; color: var(--text-sub); white-space: nowrap; }
 .featured .mag-depth span:last-child::before { content: " 深度 "; }
 
@@ -72,7 +72,7 @@ body {
 .item .time { font-size: 11px; color: var(--text-sub); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* --- 列表子卡片的規模數字也放大 --- */
-.item .mag { font-size: 22px; font-weight: bold; letter-spacing: 0.5px; white-space: nowrap; }
+.item .mag { font-size: 22px; font-weight: bold; letter-spacing: 0.5px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 /* 動態震度顏色 Class */
 .level-1 { background-color: var(--level-1); color: #fff; }
