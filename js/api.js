@@ -3,15 +3,54 @@
 
 // 翻譯轉換表，如果沒有匹配到字詞才使用英文 API
 const countyMaps = {
-    "en": { "基隆市": "Keelung", "台北市": "Taipei", "臺北市": "Taipei", "新北市": "New Taipei", "桃園市": "Taoyuan", "新竹縣": "Hsinchu", "新竹市": "Hsinchu", "苗栗縣": "Miaoli", "台中市": "Taichung", "臺中市": "Taichung", "彰化縣": "Changhua", "南投縣": "Nantou", "雲林縣": "Yunlin", "嘉義縣": "Chiayi", "嘉義市": "Chiayi", "台南市": "Tainan", "臺南市": "Tainan", "高雄市": "Kaohsiung", "屏東縣": "Pingtung", "宜蘭縣": "Yilan", "花蓮縣": "Hualien", "台東縣": "Taitung", "臺東縣": "Taitung", "澎湖縣": "Penghu", "金門縣": "Kinmen", "連江縣": "Lienchiang" },
-    "ja": { "基隆市": "基隆市", "台北市": "台北市", "臺北市": "台北市", "新北市": "新北市", "桃園市": "桃園市", "新竹縣": "新竹県", "新竹市": "新竹市", "苗栗縣": "苗栗県", "台中市": "台中市", "臺中市": "台中市", "彰化縣": "彰化県", "南投縣": "南投県", "雲林縣": "雲林県", "嘉義縣": "嘉義県", "嘉義市": "嘉義市", "台南市": "台南市", "臺南市": "台南市", "高雄市": "高雄市", "屏東縣": "屏東県", "宜蘭縣": "宜蘭県", "花蓮縣": "花蓮県", "台東縣": "台東県", "臺東縣": "台東県", "澎湖縣": "澎湖県", "金門縣": "金門県", "連江縣": "連江県" },
-    "ko": { "基隆市": "지룽시", "台北市": "타이베이시", "臺北市": "타이베이시", "新北市": "신베이시", "桃園市": "타오위안시", "新竹縣": "신주현", "新竹市": "신주시", "苗栗縣": "먀오리현", "台中市": "타이중시", "臺中市": "타이중시", "彰化縣": "장화현", "南投縣": "난터우현", "雲林縣": "윈린현", "嘉義縣": "자이현", "嘉義市": "자이시", "台南市": "타이난시", "臺南市": "타이난시", "高雄市": "가오슝시", "屏東縣": "핑둥현", "宜蘭縣": "이란현", "花蓮縣": "화롄현", "台東縣": "타이둥현", "臺東縣": "타이둥현", "澎湖縣": "펑후현", "金門縣": "진먼현", "連江縣": "롄장현" }
+    "基隆市": { en: "Keelung", ja: "基隆市", ko: "지룽시" },
+    "台北市": { en: "Taipei", ja: "台北市", ko: "타이베이시" },
+    "臺北市": { en: "Taipei", ja: "台北市", ko: "타이베이시" },
+    "新北市": { en: "New Taipei", ja: "新北市", ko: "신베이시" },
+    "桃園市": { en: "Taoyuan", ja: "桃園市", ko: "타오위안시" },
+    "新竹縣": { en: "Hsinchu", ja: "新竹県", ko: "신주현" },
+    "新竹市": { en: "Hsinchu", ja: "新竹市", ko: "신주시" },
+    "苗栗縣": { en: "Miaoli", ja: "苗栗県", ko: "먀오리현" },
+    "台中市": { en: "Taichung", ja: "台中市", ko: "타이중시" },
+    "臺中市": { en: "Taichung", ja: "台中市", ko: "타이중시" },
+    "彰化縣": { en: "Changhua", ja: "彰化県", ko: "장화현" },
+    "南投縣": { en: "Nantou", ja: "南投県", ko: "난터우현" },
+    "雲林縣": { en: "Yunlin", ja: "雲林県", ko: "윈린현" },
+    "嘉義縣": { en: "Chiayi", ja: "嘉義県", ko: "자이현" },
+    "嘉義市": { en: "Chiayi", ja: "嘉義市", ko: "자이시" },
+    "台南市": { en: "Tainan", ja: "台南市", ko: "타이난시" },
+    "臺南市": { en: "Tainan", ja: "台南市", ko: "타이난시" },
+    "高雄市": { en: "Kaohsiung", ja: "高雄市", ko: "가오슝시" },
+    "屏東縣": { en: "Pingtung", ja: "屏東県", ko: "핑둥현" },
+    "宜蘭縣": { en: "Yilan", ja: "宜蘭県", ko: "이란현" },
+    "花蓮縣": { en: "Hualien", ja: "花蓮県", ko: "화롄현" },
+    "台東縣": { en: "Taitung", ja: "台東県", ko: "타이둥현" },
+    "臺東縣": { en: "Taitung", ja: "台東県", ko: "타이둥현" },
+    "澎湖縣": { en: "Penghu", ja: "澎湖県", ko: "펑후현" },
+    "金門縣": { en: "Kinmen", ja: "金門県", ko: "진먼현" },
+    "連江縣": { en: "Lienchiang", ja: "連江県", ko: "롄장현" },
 };
 
 const seaMaps = {
-    "en": { "臺灣東部海域": "Eastern Taiwan Waters", "台灣東部海域": "Eastern Taiwan Waters", "臺灣西部海域": "Western Taiwan Waters", "台灣西部海域": "Western Taiwan Waters", "臺灣南部海域": "Southern Taiwan Waters", "台灣南部海域": "Southern Taiwan Waters", "臺灣北部海域": "Northern Taiwan Waters", "台灣北部海域": "Northern Taiwan Waters", "臺灣東北部海域": "Northeastern Taiwan Waters", "台灣東北部海域": "Northeastern Taiwan Waters", "臺灣東南部海域": "Southeastern Taiwan Waters", "台灣東南部海域": "Southeastern Taiwan Waters", "臺灣西北部海域": "Northwestern Taiwan Waters", "台灣西北部海域": "Northwestern Taiwan Waters", "臺灣西南部海域": "Southwestern Taiwan Waters", "台灣西南部海域": "Southwestern Taiwan Waters", "台灣海峽": "Taiwan Strait", "臺灣海峽": "Taiwan Strait", "巴士海峽": "Bashi Channel" },
-    "ja": { "臺灣東部海域": "台湾東部沖", "台灣東部海域": "台湾東部沖", "臺灣西部海域": "台湾西部沖", "台灣西部海域": "台湾西部沖", "臺灣南部海域": "台湾南部沖", "台灣南部海域": "台湾南部沖", "臺灣北部海域": "台湾北部沖", "台灣北部海域": "台湾北部沖", "臺灣東北部海域": "台湾北東沖", "台灣東北部海域": "台湾北東沖", "臺灣東南部海域": "台湾南東沖", "台灣東南部海域": "台湾南東沖", "臺灣西北部海域": "台湾北西沖", "台灣西北部海域": "台湾北西沖", "臺灣西南部海域": "台湾南西沖", "台灣西南部海域": "台湾南西沖", "台灣海峽": "台湾海峡", "臺灣海峽": "台湾海峡", "巴士海峽": "バシー海峡" },
-    "ko": { "臺灣東部海域": "대만 동부 해역", "台灣東部海域": "대만 동부 해역", "臺灣西部海域": "대만 서부 해역", "台灣西部海域": "대만 서부 해역", "臺灣南部海域": "대만 남부 해역", "台灣南部 해역": "대만 남부 해역", "臺灣北部海域": "대만 북부 해역", "台灣北部海域": "대만 북부 해역", "臺灣東北部海域": "대만 북동부 해역", "台灣東北部海域": "대만 북동부 해역", "臺灣東南部海域": "대만 남동부 해역", "台灣東南部海域": "대만 남동부 해역", "臺灣西北部海域": "대만 북서부 해역", "台灣西北部海域": "대만 북서부 해역", "臺灣西南部海域": "대만 남서부 해역", "台灣西南部海域": "대만 남서부 해역", "台灣海峽": "대만해협", "臺灣海峽": "대만해협", "巴士海峽": "바시해협" }
+    "臺灣東部海域": { en: "Eastern Taiwan Waters", ja: "台湾東部沖", ko: "대만 동부 해역" },
+    "台灣東部海域": { en: "Eastern Taiwan Waters", ja: "台湾東部沖", ko: "대만 동부 해역" },
+    "臺灣西部海域": { en: "Western Taiwan Waters", ja: "台湾西部沖", ko: "대만 서부 해역" },
+    "台灣西部海域": { en: "Western Taiwan Waters", ja: "台湾西部沖", ko: "대만 서부 해역" },
+    "臺灣南部海域": { en: "Southern Taiwan Waters", ja: "台湾南部沖", ko: "대만 남부 해역" },
+    "台灣南部海域": { en: "Southern Taiwan Waters", ja: "台湾南部沖", ko: "대만 남부 해역" },
+    "臺灣北部海域": { en: "Northern Taiwan Waters", ja: "台湾北部沖", ko: "대만 북부 해역" },
+    "台灣北部海域": { en: "Northern Taiwan Waters", ja: "台湾北部沖", ko: "대만 북부 해역" },
+    "臺灣東北部海域": { en: "Northeastern Taiwan Waters", ja: "台湾北東沖", ko: "대만 북동부 해역" },
+    "台灣東北部海域": { en: "Northeastern Taiwan Waters", ja: "台湾北東沖", ko: "대만 북동부 해역" },
+    "臺灣東南部海域": { en: "Southeastern Taiwan Waters", ja: "台湾南東沖", ko: "대만 남동부 해역" },
+    "台灣東南部海域": { en: "Southeastern Taiwan Waters", ja: "台湾南東沖", ko: "대만 남동부 해역" },
+    "臺灣西北部海域": { en: "Northwestern Taiwan Waters", ja: "台湾北西沖", ko: "대만 북서부 해역" },
+    "台灣西北部海域": { en: "Northwestern Taiwan Waters", ja: "台湾北西沖", ko: "대만 북서부 해역" },
+    "臺灣西南部海域": { en: "Southwestern Taiwan Waters", ja: "台湾南西沖", ko: "대만 남서부 해역" },
+    "台灣西南部海域": { en: "Southwestern Taiwan Waters", ja: "台湾南西沖", ko: "대만 남서부 해역" },
+    "台灣海峽": { en: "Taiwan Strait", ja: "台湾海峡", ko: "대만해협" },
+    "臺灣海峽": { en: "Taiwan Strait", ja: "台湾海峡", ko: "대만해협" },
+    "巴士海峽": { en: "Bashi Channel", ja: "バシー海峡", ko: "바시해협" },
 };
 
 const offshoreTerms = {
@@ -170,21 +209,18 @@ export async function fetchEarthquakeData(apiKey, lang = 'zh') {
                     }
 
                     if (hasPlaceName) {
-                        const currentSeaMap = seaMaps[lang] || seaMaps['en'];
-                        const currentCountyMap = countyMaps[lang] || countyMaps['en'];
-                        const offshoreTerm = offshoreTerms[lang] || offshoreTerms['en'];
+                        const offshoreTerm = offshoreTerms[lang] ?? offshoreTerms['en'];
 
-                        if (currentSeaMap[zhLoc]) {
-                            locationStr = currentSeaMap[zhLoc];
+                        if (seaMaps[zhLoc]) {
+                            locationStr = seaMaps[zhLoc][lang] ?? seaMaps[zhLoc]['en'];
                             translated = true;
                         } else {
-                            for (const [zhCounty, localCounty] of Object.entries(currentCountyMap)) {
+                            for (const [zhCounty, translations] of Object.entries(countyMaps)) {
                                 if (zhLoc.startsWith(zhCounty)) {
-                                    if (zhLoc.includes("近海")) {
-                                        locationStr = localCounty + offshoreTerm;
-                                    } else {
-                                        locationStr = localCounty;
-                                    }
+                                    const localCounty = translations[lang] ?? translations['en'];
+                                    locationStr = zhLoc.includes("近海")
+                                        ? localCounty + offshoreTerm
+                                        : localCounty;
                                     translated = true;
                                     break;
                                 }
