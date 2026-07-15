@@ -6,6 +6,7 @@ import { renderList } from './ui.js';
 const apiKeyInput = document.getElementById('api-key-input');
 const saveBtn = document.getElementById('save-btn');
 const saveStatus = document.getElementById('save-status');
+const langRadios = document.querySelectorAll('input[name="lang"]');
 
 let updateInterval = null;
 
@@ -17,10 +18,12 @@ async function refreshData() {
         return;
     }
 
+    const lang = localStorage.getItem('cwa_api_lang') || 'zh';
+
     try {
-        const data = await fetchEarthquakeData(apiKey);
+        const data = await fetchEarthquakeData(apiKey, lang);
         // 渲染到畫面 (我們在 HTML 宣告的容器 ID 是 earthquake-list)
-        renderList(data, 'earthquake-list');
+        renderList(data, 'earthquake-list', lang);
         console.log("資料已更新:", new Date().toLocaleTimeString());
     } catch (error) {
         // 如果 API 報錯，可以在畫面提示或處理
@@ -43,10 +46,28 @@ saveBtn.addEventListener('click', () => {
     }
 });
 
+langRadios.forEach(radio => {
+    radio.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            localStorage.setItem('cwa_api_lang', e.target.value);
+            refreshData();
+        }
+    });
+});
+
 // 啟動應用
 function initApp() {
-    // 填入已儲存的 key
+    // 填入已儲存的 key 和 lang
     const savedKey = localStorage.getItem('cwa_api_key');
+    const savedLang = localStorage.getItem('cwa_api_lang');
+    
+    if (savedLang) {
+        const radio = document.querySelector(`input[name="lang"][value="${savedLang}"]`);
+        if (radio) {
+            radio.checked = true;
+        }
+    }
+
     if (savedKey) {
         apiKeyInput.value = savedKey;
         refreshData();
