@@ -55,12 +55,34 @@ langRadios.forEach(radio => {
     });
 });
 
+const popoutBtn = document.getElementById('popout-btn');
+
+// 獨立視窗 (Popout) 按鈕事件
+if (popoutBtn) {
+    popoutBtn.addEventListener('click', () => {
+        const url = new URL(window.location.href);
+        url.searchParams.set('popout', '1');
+        // 開啟一個小視窗
+        window.open(url.href, 'EarthquakePopout', 'width=270,height=550,menubar=no,toolbar=no,location=no,status=no');
+    });
+}
+
 // 啟動應用
 function initApp() {
+    // 如果是 popout 模式，隱藏設定區以節省空間
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('popout') === '1') {
+        const settingsArea = document.getElementById('settings-area');
+        if (settingsArea) {
+            settingsArea.style.display = 'none';
+        }
+        document.body.style.backgroundColor = '#4a4a4a'; // 把背景統一
+    }
+
     // 填入已儲存的 key 和 lang
     const savedKey = localStorage.getItem('cwa_api_key');
     const savedLang = localStorage.getItem('cwa_api_lang');
-    
+
     if (savedLang) {
         const radio = document.querySelector(`input[name="lang"][value="${savedLang}"]`);
         if (radio) {
