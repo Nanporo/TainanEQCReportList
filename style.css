@@ -48,6 +48,7 @@ body {
     padding: 4px;
     box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    line-height: 1.2;
 }
 
 .card.featured { flex-direction: column; padding: 4px; }
@@ -63,7 +64,7 @@ body {
 .featured .mag-depth { display: flex; justify-content: space-between; width: 100%; align-items: flex-end; flex-direction: row-reverse; }
 .featured .mag-depth span:first-child { font-size: 22px; font-weight: bold; letter-spacing: 1px; white-space: nowrap; font-variant-numeric: tabular-nums; } /* 主卡片 M 放大 */
 .featured .mag-depth span:last-child { font-size: 14px; font-weight: bold; color: var(--text-sub); white-space: nowrap; }
-.featured .mag-depth span:last-child::before { content: " 深度 "; }
+
 
 .card.item { align-items: center; gap: 7px; padding: 5px; }
 .item .intensity-box { flex-shrink: 0; width: 35px; height: 35px; border-radius: 4px; display: flex; justify-content: center; align-items: center; font-size: 26px; font-weight: bold; white-space: nowrap; }

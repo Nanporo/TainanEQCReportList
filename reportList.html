@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>地震報告列表</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="broadcast-area">
         <div id="earthquake-list" class="container">
-            </div>
+        </div>
     </div>
 
     <div id="settings-area">
-        <label>CWA API 授權碼：</label>
+        <label>CWA API KEY 授權碼：</label>
         <input type="text" id="api-key-input" placeholder="CWA-XXXXX..." size="40">
-        <button id="save-btn">儲存</button>
+        <button id="save-btn">儲存 Save</button>
+        <button id="popout-btn" style="margin-left: 5px;">Popout</button>
         <span id="save-status"></span>
         <div style="margin-top: 10px;">
             <label>語言 (Language)：</label>
@@ -24,9 +27,14 @@
             <label for="lang-zh">中文</label>
             <input type="radio" id="lang-en" name="lang" value="en">
             <label for="lang-en">English</label>
+            <input type="radio" id="lang-ja" name="lang" value="ja">
+            <label for="lang-ja">日本語</label>
+            <input type="radio" id="lang-ko" name="lang" value="ko">
+            <label for="lang-ko">한국어</label>
         </div>
     </div>
 
     <script type="module" src="js/main.js"></script>
 </body>
+
 </html>
