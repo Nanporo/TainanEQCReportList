@@ -1,6 +1,6 @@
 // js/ui.js
 
-export function renderList(data, containerId, lang = 'zh') {
+function renderList(data, containerId, lang = 'zh') {
     const container = document.getElementById(containerId);
     if (!container) return;
 

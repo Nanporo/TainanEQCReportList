@@ -1,8 +1,5 @@
 // js/main.js
 
-import { fetchEarthquakeData } from './api.js';
-import { renderList } from './ui.js';
-
 const apiKeyInput = document.getElementById('api-key-input');
 const saveBtn = document.getElementById('save-btn');
 const saveStatus = document.getElementById('save-status');

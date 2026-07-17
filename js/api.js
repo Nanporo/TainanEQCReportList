@@ -80,7 +80,7 @@ const intensityWeightMap = {
     "7": { text: "7", weight: 9, classSuffix: "7" }
 };
 
-export async function fetchEarthquakeData(apiKey, lang = 'zh') {
+async function fetchEarthquakeData(apiKey, lang = 'zh') {
     if (!apiKey) throw new Error("尚未設定 API 授權碼");
 
     let urls = [];
